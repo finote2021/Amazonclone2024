@@ -149,3 +149,9 @@ span {
   }
   
 }
+.order_container a:hover,
+.delivery:hover,
+.logo_container a :hover{
+  border: 1px solid white;
+  border-radius: 3px;
+}

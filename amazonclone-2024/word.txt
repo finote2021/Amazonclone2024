@@ -1,0 +1,15 @@
+  1. what is react carousel 
+React Carousel is a carousel component for React. It is a React component that allows you to create a
+carousel with a set of slides. The slides can be images, text, or any other content.
+
+ 2. ImageAssistant....pick images from amazon 
+ ImageAssistant is a tool that helps you to manage your images. It allows you to upload, edit
+ and delete images. It also allows you to create albums and add images to them. You can also
+ share your images with others. ImageAssistant is a free and open source tool. It is available for
+ Windows, Mac and Linux. You can download it from the official website. ImageAssistant is a
+ 
+ 3. i need to read about the followings 
+        autoPlay={true}
+        infiniteloop={true}
+        showindicator={true}
+        showThumbs={false}
