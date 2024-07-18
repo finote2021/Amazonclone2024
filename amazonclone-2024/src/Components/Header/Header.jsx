@@ -3,6 +3,7 @@ import { IoIosSearch } from "react-icons/io"; //   https://react-icons.github.io
 import { IoMdCart } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import "./Header.css";
+import LowerHeader from "./LowerHeader";
 function Header() {
   return (
     <>
@@ -63,6 +64,7 @@ function Header() {
           </div>
         </div>
       </section>
+      <LowerHeader />
     </>
   );
 }

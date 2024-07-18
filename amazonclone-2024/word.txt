@@ -13,3 +13,6 @@ carousel with a set of slides. The slides can be images, text, or any other cont
         infiniteloop={true}
         showindicator={true}
         showThumbs={false}
+
+4.  fake store api
+https://fakestoreapi.com/products
