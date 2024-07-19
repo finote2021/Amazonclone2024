@@ -13,6 +13,24 @@ carousel with a set of slides. The slides can be images, text, or any other cont
         infiniteloop={true}
         showindicator={true}
         showThumbs={false}
-
+//Product section 
 4.  fake store api
 https://fakestoreapi.com/products
+- use all products api
+- install axios
+-* use axios to get all products
+- use map to display all products
+* npm install @mui/material @emotion/react @emotion/styled
+* what is npm install numeral js
+  - A javascript library for formatting and manipulating numbers.
+  - It provides a set of functions for formatting numbers, including formatting
+  numbers with commas, formatting numbers with a currency symbol, formatting numbers
+  with a percentage symbol, formatting numbers with a decimal point, formatting numbers
+  with a thousand separator, formatting numbers with a currency symbol and a thousand
+  separator, formatting numbers with a percentage symbol and a thousand separator, formatting
+  numbers with a decimal point and a thousand separator, formatting numbers with a
+  currency symbol and a decimal point, formatting numbers with a percentage symbol and a
+  decimal point, formatting numbers with a thousand separator and a decimal point, formatting
+
+  *  link with curreny format 
+   
