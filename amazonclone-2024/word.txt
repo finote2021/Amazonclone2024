@@ -34,3 +34,5 @@ https://fakestoreapi.com/products
 
   *  link with curreny format 
    
+5. router :
+- install react router dom
