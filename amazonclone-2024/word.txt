@@ -46,3 +46,8 @@ Get products in a specific category: fetch('https://fakestoreapi.com/products/ca
 basulr : https://fakestoreapi.com/products/
 
  bas ulr: 
+ 7. loader catagory 
+
+ npm i react-spinners --save
+ npm i react-loader-spinner --save
+ npm i react-loader-spinner --save

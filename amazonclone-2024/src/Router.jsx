@@ -6,7 +6,7 @@ import Payment from "./pages/Payment/Payment";
 import Orders from "./pages/Order/Order";
 import Cart from "./pages/Cart/Cart";
 import Results from "./pages/Results/Results";
-import ProductDetail from "./pages/ProductDetail/PaymentDetail";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function Routering() {
   return (
