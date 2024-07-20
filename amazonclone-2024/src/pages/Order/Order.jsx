@@ -1,5 +1,5 @@
-import React from 'react'
-import classes from "./Order.module.css"
+import React from "react";
+import classes from "./Order.module.css";
 import Layout from "../../Components/Layout/Layout";
 
 function Order() {
@@ -10,4 +10,4 @@ function Order() {
   );
 }
 
-export default Order
+export default Order;

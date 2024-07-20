@@ -36,3 +36,13 @@ https://fakestoreapi.com/products
    
 5. router :
 - install react router dom
+6. Catagory router
+- install react router dom
+- create a router for catagory
+- create a router for catagory
+
+https://fakestoreapi.com/docs/ fetch('https://fakestoreapi.com/products/categories')// all gatagory
+Get products in a specific category: fetch('https://fakestoreapi.com/products/category/jewelery')
+basulr : https://fakestoreapi.com/products/
+
+ bas ulr: 
