@@ -9,7 +9,7 @@ import Loader from "../../Components/Loader/Loader";
 function Results() {
   const [results, setResults] = useState([]);
   const { categoryName } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  const [IsLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -31,7 +31,7 @@ function Results() {
         <h1 style={{ padding: "30px" }}>Results</h1>
         <p style={{ padding: "30px" }}>Category / {categoryName}</p>
         <hr />
-        {isLoading ? (
+        {IsLoading ? (
           <Loader />
         ) : (
           <div className="products_container">

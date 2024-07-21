@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import classes from "./ProductDetail.module.css";
 import Layout from "../../Components/Layout/Layout";
@@ -10,7 +9,7 @@ import Loader from "../../Components/Loader/Loader";
 
 function ProductDetail() {
   const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [IsLoading, setIsLoading] = useState(false);
   const { productId } = useParams();
 
   useEffect(() => {
@@ -28,11 +27,15 @@ function ProductDetail() {
       });
   }, []);
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <Layout>
-      {isLoading ? <Loader /> : <ProductCard product={product} flex={true} />}
+      {IsLoading ? (
+        <Loader />
+      ) : (
+        <ProductCard product={product} flex={true} renderDesc={true} />
+      )}
     </Layout>
   );
 }

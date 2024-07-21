@@ -5,8 +5,8 @@ import classes from "./Product.module.css";
 // import classes from "./ProductFlexed.module.css";
 import { Link } from "react-router-dom";
 
-function ProductCard({ product, flex }) {
-  const { image, title, id, rating = {}, price } = product;
+function ProductCard({ product, flex, renderDesc }) {
+  const { image, title, id, description, rating = {}, price } = product;
 
   return (
     <div
@@ -19,6 +19,7 @@ function ProductCard({ product, flex }) {
       </Link>
       <div>
         <h3>{title}</h3>
+        {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
         <div className={classes.rating}>
           <Rating value={rating.rate || 0} precision={0.1} />
           <small>{rating.count || 0}</small>
