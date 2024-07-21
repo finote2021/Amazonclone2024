@@ -1,12 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import LowerHeader from "./LowerHeader";
+import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
+  const [state, dispatch] = useContext(DataContext); // renamed `basket` to `state`
+  const { basket } = state; // destructure `basket` from `state`
+
   return (
     <>
       <section>
@@ -62,7 +67,7 @@ function Header() {
             <Link to="/Cart">
               <div className="cart">
                 <IoMdCart size={35} />
-                <span>0</span>
+                <span>{basket.length}</span>
               </div>
             </Link>
           </div>

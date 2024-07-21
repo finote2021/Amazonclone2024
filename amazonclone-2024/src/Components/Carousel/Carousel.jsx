@@ -1,7 +1,9 @@
+// CarouselEffect.js
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { img } from "./img/data.js";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader we  need to installl npm i react-responsive-carousel firts 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 function CarouselEffect() {
   return (
     <div>
@@ -11,8 +13,8 @@ function CarouselEffect() {
         showindicator={false}
         showThumbs={false}
       >
-        {img.map((imageItemslink) => {
-          return <img src={imageItemslink} />;
+        {img.map((imageItemslink, index) => {
+          return <img key={index} src={imageItemslink} />;
         })}
       </Carousel>
       <div className="hero_img"> </div>

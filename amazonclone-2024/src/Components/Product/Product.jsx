@@ -6,23 +6,25 @@ import Loader from "../../Components/Loader/Loader";
 
 function Product() {
   const [products, setProducts] = useState([]);
-  const [Isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
-        Isloading(false);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        Isloading(false);
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <>
-      {Isloading ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <section className={classes.products_container}>

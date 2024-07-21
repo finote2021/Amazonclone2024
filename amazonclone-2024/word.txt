@@ -51,3 +51,138 @@ basulr : https://fakestoreapi.com/products/
  npm i react-spinners --save
  npm i react-loader-spinner --save
  npm i react-loader-spinner --save
+ 8. useReducer Hook and UseContextAPI explanation and example
+    Here's a detailed explanation of useState, useReducer, and the Context API:
+
+1. useState Hook
+
+useState is a Hook that allows you to add React state to functional components. It takes an initial value as an argument and returns an array with two elements:
+
+The current state value
+A function to update the state value
+Example:
+
+js
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+import React, { useState } from 'eact';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+</button>
+    </div>
+  );
+}
+In this example, count is the current state value, and setCount is the function to update the state value.
+
+2. useReducer Hook
+
+useReducer is a Hook that allows you to manage state with a reducer function. It takes three arguments:
+
+The initial state value
+The reducer function
+An optional initial action
+useReducer returns an array with two elements:
+
+The current state value
+The dispatch function
+Example:
+
+js
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+import React, { useReducer } from 'eact';
+
+const initialState = { count: 0 };
+
+const counterReducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+function Counter() {
+  const [state, dispatch] = useReducer(counterReducer, initialState);
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+    </div>
+  );
+}
+In this example, state is the current state value, and dispatch is the function to send actions to the reducer.
+
+3. Context API
+
+The Context API is a way to share data between components without passing props down manually. It consists of three parts:
+
+Context: A container that holds the shared data
+Provider: A component that provides the context to its children
+Consumer: A component that consumes the context
+Example:
+
+js
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+import React, { createContext, useContext } from 'eact';
+
+const ThemeContext = createContext();
+
+const ThemeProvider = ({ children }) => {
+  const theme = 'dark';
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+function Button() {
+  const theme = useContext(ThemeContext);
+
+  return <button style={{ backgroundColor: theme === 'dark'? '#333' : '#fff' }}>Click me!</button>;
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Button />
+    </ThemeProvider>
+  );
+}
+In this example, ThemeContext is the context container, ThemeProvider is the provider component, and Button is the consumer component.
+
+When to use each:
+
+useState: Use when you need to manage simple state in a functional component.
+useReducer: Use when you need to manage complex state with a reducer function.
+Context API: Use when you need to share data between components without passing props down manually.
+Key differences:
+
+useState and useReducer are used for local state management, while the Context API is used for global state management.
+useState is simpler and easier to use, while useReducer is more powerful and flexible.
+The Context API is more complex and requires more boilerplate code, but it provides a way to share data between components in a more scalable way.
