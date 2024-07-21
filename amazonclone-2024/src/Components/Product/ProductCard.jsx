@@ -19,7 +19,11 @@ function ProductCard({ product }) {
           <small>{rating.count || 0}</small>
         </div>
         <div>
-          <CurrencyFormat amount={price} />
+          {typeof price === "number" ? (
+            <CurrencyFormat amount={price} />
+          ) : (
+            <span>Price not available</span>
+          )}
         </div>
         <button className={classes.button}>Add to Cart</button>
       </div>
