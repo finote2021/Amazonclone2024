@@ -13,7 +13,7 @@ function Header() {
   const { basket } = state; // destructure `basket` from `state`
 
   return (
-    <>
+    <section className="fixed">
       <section>
         <div className="header_container">
           {/* logo section */}
@@ -74,7 +74,7 @@ function Header() {
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
 }
 
