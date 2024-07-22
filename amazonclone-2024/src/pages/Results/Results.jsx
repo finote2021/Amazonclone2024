@@ -5,7 +5,6 @@ import axios from "axios";
 import { ProductUrl } from "../../Api/endPoints";
 import ProductCard from "../../Components/Product/ProductCard";
 import Loader from "../../Components/Loader/Loader";
-
 function Results() {
   const [results, setResults] = useState([]);
   const { categoryName } = useParams();
@@ -36,7 +35,13 @@ function Results() {
         ) : (
           <div className="products_container">
             {results?.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              // <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                renderDesc={false}
+                renderAdd={true}
+              />
             ))}
           </div>
         )}

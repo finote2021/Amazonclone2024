@@ -1,5 +1,5 @@
-import React from "react";
-import { useContext } from "react";
+// Header.jsx
+import React, { useContext } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
@@ -9,8 +9,7 @@ import LowerHeader from "./LowerHeader";
 import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
-  const [state, dispatch] = useContext(DataContext); // renamed `basket` to `state`
-  const { basket } = state; // destructure `basket` from `state`
+  const [{ basket }, dispatch] = useContext(DataContext);
 
   return (
     <section className="fixed">
@@ -35,8 +34,8 @@ function Header() {
             <span>Ethiopia</span>
           </div>
 
+          {/* search section */}
           <div className="search">
-            {/* search section      */}
             <select name="" id="">
               <option value="">All</option>
             </select>
@@ -58,7 +57,7 @@ function Header() {
             </Link>
             <Link to="/Auth">
               <p>Sign In</p>
-              <span>Acount & Lists</span>
+              <span>Account & Lists</span>
             </Link>
             <Link to="/Orders">
               <p>Returns</p>
