@@ -14,6 +14,7 @@ const CurrencyFormat = ({ amount = 0 }) => {
 
 export default CurrencyFormat;
 
+
 // import React from "react";
 // import numeral from "numeral";
 

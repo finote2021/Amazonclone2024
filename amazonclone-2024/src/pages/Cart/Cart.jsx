@@ -10,10 +10,11 @@ import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
 function Cart() {
-  const [{ basket, user }, dispatch] = useContext(DataContext);
-  const total = basket.reduce((amount, item) => {
-    return item.price * item.amount + amount;
-  }, 0);
+  const [{ basket }, dispatch] = useContext(DataContext);
+  const total = basket.reduce(
+    (amount, item) => item.price * item.amount + amount,
+    0
+  );
 
   const increment = (item) => {
     dispatch({
@@ -21,6 +22,7 @@ function Cart() {
       item,
     });
   };
+
   const decrement = (id) => {
     dispatch({
       type: Type.REMOVE_FROM_BASKET,
@@ -33,39 +35,36 @@ function Cart() {
       <section className="container">
         <div className="cart_container">
           <h2>Hello</h2>
-          <h3>Your shopping basket </h3>
+          <h3>Your shopping basket</h3>
           <hr />
-          {basket?.length === 0 ? (
-            <p>Opps! No item in your cart</p>
+          {basket.length === 0 ? (
+            <p>Oops! No item in your cart</p>
           ) : (
-            basket?.map((item, i) => {
-              return (
-                <section className="cart_product">
-                  <ProductCard
-                    key={i}
-                    product={item}
-                    renderDesc={true}
-                    renderAdd={false}
-                    flex={true}
-                  />
-                  <div className="btn_container">
-                    <button className="btn" onClick={() => increment(item)}>
-                      <IoIosArrowUp size={25} />
-                    </button>
-                    <span> {item.amount} </span>
-                    <button className="btn" onClick={() => decrement(item.id)}>
-                      <IoIosArrowDown size={25} />
-                    </button>
-                  </div>
-                </section>
-              );
-            })
+            basket.map((item, i) => (
+              <section className="cart_product" key={i}>
+                <ProductCard
+                  product={item}
+                  renderDesc={true}
+                  renderAdd={false}
+                  flex={true}
+                />
+                <div className="btn_container">
+                  <button className="btn" onClick={() => increment(item)}>
+                    <IoIosArrowUp size={25} />
+                  </button>
+                  <span>{item.amount}</span>
+                  <button className="btn" onClick={() => decrement(item.id)}>
+                    <IoIosArrowDown size={25} />
+                  </button>
+                </div>
+              </section>
+            ))
           )}
         </div>
-        {basket?.length !== 0 && (
+        {basket.length !== 0 && (
           <div className="subtotal">
             <div>
-              <p>Subtotal ({basket?.length} items)</p>
+              <p>Subtotal ({basket.length} items)</p>
               <CurrencyFormat amount={total} />
             </div>
             <span>

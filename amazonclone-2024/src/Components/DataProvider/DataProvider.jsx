@@ -1,4 +1,3 @@
-// DataProvider.jsx
 import React, { createContext, useReducer } from "react";
 
 export const DataContext = createContext();
@@ -10,9 +9,37 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_BASKET":
+      const existingItem = state.basket.find(
+        (item) => item.id === action.item.id
+      );
+      if (existingItem) {
+        return {
+          ...state,
+          basket: state.basket.map((item) =>
+            item.id === action.item.id
+              ? { ...item, amount: item.amount + 1 }
+              : item
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          basket: [...state.basket, { ...action.item, amount: 1 }],
+        };
+      }
+    case "REMOVE_FROM_BASKET":
       return {
         ...state,
-        basket: [...state.basket, action.item],
+        basket: state.basket.reduce((acc, item) => {
+          if (item.id === action.id) {
+            if (item.amount > 1) {
+              acc.push({ ...item, amount: item.amount - 1 });
+            }
+          } else {
+            acc.push(item);
+          }
+          return acc;
+        }, []),
       };
     default:
       return state;
