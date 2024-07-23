@@ -5,9 +5,9 @@ import classes from "./Product.module.css";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 
-function ProductCard({ product, flex, rederDesc, renderAdd }) {
+function ProductCard({ product, flex, renderDesc, renderAdd }) {
   const { image, title, id, rating, price, description } = product ?? {};
-  const [state, dispatch] = useContext(DataContext);
+  const [{ basket }, dispatch] = useContext(DataContext); // Fix: use destructuring to get basket state
 
   const addToCart = () => {
     dispatch({ type: "ADD_TO_BASKET", item: product });
@@ -25,7 +25,7 @@ function ProductCard({ product, flex, rederDesc, renderAdd }) {
       <div>
         <h6>{title}</h6>
         <br />
-        {rederDesc && <div style={{ maxWidth: "500PX" }}> {description}</div>}
+        {renderDesc && <div style={{ maxWidth: "500PX" }}> {description}</div>}
         <div className={classes.rating}>
           {/* rating */}
           <Rating value={rating?.rate} precision={0.1} />
@@ -49,7 +49,55 @@ function ProductCard({ product, flex, rederDesc, renderAdd }) {
 export default ProductCard;
 
 
+// import React, { useContext } from "react";
+// import Rating from "@mui/material/Rating";
+// import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
+// import classes from "./Product.module.css";
+// import { Link } from "react-router-dom";
+// import { DataContext } from "../DataProvider/DataProvider";
 
+// function ProductCard({ product, flex, rederDesc, renderAdd }) {
+//   const { image, title, id, rating, price, description } = product ?? {};
+//   const [state, dispatch] = useContext(DataContext);
+
+//   const addToCart = () => {
+//     dispatch({ type: "ADD_TO_BASKET", item: product });
+//   };
+
+//   return (
+//     <div
+//       className={`${classes.card_container} ${
+//         flex ? classes.product_flexed : ""
+//       }`}
+//     >
+//       <Link to={`/products/${id}`}>
+//         <img src={image} alt="" className={classes.img_container} />
+//       </Link>
+//       <div>
+//         <h6>{title}</h6>
+//         <br />
+//         {rederDesc && <div style={{ maxWidth: "500PX" }}> {description}</div>}
+//         <div className={classes.rating}>
+//           {/* rating */}
+//           <Rating value={rating?.rate} precision={0.1} />
+//           {/* count */}
+//           <small>{rating?.count}</small>
+//         </div>
+//         <div>
+//           {/* price */}
+//           <CurrencyFormat amount={price} />
+//         </div>
+//         {renderAdd && (
+//           <button className={classes.button} onClick={addToCart}>
+//             add to cart
+//           </button>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ProductCard;
 
 // import React from "react";
 // import Rating from "@mui/material/Rating";

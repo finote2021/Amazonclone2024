@@ -1,4 +1,3 @@
-// Header.jsx
 import React, { useContext } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
@@ -10,6 +9,9 @@ import { DataContext } from "../DataProvider/DataProvider";
 
 function Header() {
   const [{ basket }, dispatch] = useContext(DataContext);
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
   return (
     <section className="fixed">
@@ -66,7 +68,7 @@ function Header() {
             <Link to="/Cart">
               <div className="cart">
                 <IoMdCart size={35} />
-                <span>{basket.length}</span>
+                <span>{totalItem}</span>
               </div>
             </Link>
           </div>
