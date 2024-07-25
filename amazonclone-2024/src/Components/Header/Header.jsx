@@ -6,9 +6,10 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import LowerHeader from "./LowerHeader";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../../Utility/firebase";
 
 function Header() {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -42,7 +43,7 @@ function Header() {
               <option value="">All</option>
             </select>
             <input type="search" />
-            <IoIosSearch size={25} />
+            <IoIosSearch size={38} />
           </div>
 
           {/* right side link */}
@@ -57,9 +58,20 @@ function Header() {
                 <option value="">EN</option>
               </select>
             </Link>
-            <Link to="/Auth">
-              <p>Sign In</p>
-              <span>Account & Lists</span>
+            <Link to="/auth">
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
             </Link>
             <Link to="/Orders">
               <p>Returns</p>
